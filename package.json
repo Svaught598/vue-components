@@ -1,0 +1,42 @@
+{
+  "name": "gamehook-vue-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-all.cjs",
+  "module": "./dist/vue-all.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-all.js",
+      "require": "./dist/vue-all.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "storybook dev -p 6006"
+  },
+  "dependencies": {
+    "@gamehook-io/bindings": "^0.0.22",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.24",
+    "@storybook/addon-interactions": "^7.0.24",
+    "@storybook/addon-links": "^7.0.24",
+    "@storybook/blocks": "^7.0.24",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.24",
+    "@storybook/vue3-vite": "^7.0.24",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "bootstrap": "^5.3.0",
+    "netlify-cli": "^15.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.24",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vue-tsc": "^1.4.2"
+  }
+}

@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Usage - Simple" />
+
+# Usage
+
+In order to use GameHook components within OBS or other streaming software, you must create an index.html file to use within the OBS browser control.
+
+A temple has been provided for use. Copy this into a `index.html` file.
+## Starter Template
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GameHook UI</title>
+
+    <link rel="stylesheet" href="https://components.gamehook.io/themes/base.css" />
+  </head>
+  <body>
+    <div id="app">
+        <div>Hello world!</div>
+    </div>
+
+  <script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+  </body>
+</html>
+```
