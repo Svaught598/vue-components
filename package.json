@@ -18,7 +18,7 @@
     "dev": "storybook dev -p 6006"
   },
   "dependencies": {
-    "@gamehook-io/bindings": "^0.0.22",
+    "@gamehook-io/bindings": "^0.0.30",
     "vue": "^3.2.47"
   },
   "devDependencies": {
