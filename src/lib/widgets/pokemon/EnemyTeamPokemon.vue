@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PokemonYellowMapperClient } from '@gamehook-io/bindings/GB/PokemonYellow'
+import { MapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
 import { computed } from 'vue';
 import Border from '../../components/Border.vue';
 
@@ -9,11 +9,11 @@ const props = defineProps({
     title: { type: String, required: false }
 })
 
-const mapper = props.mapper as PokemonYellowMapperClient
-const hasData = computed(() => mapper?.battle?.trainer?.totalPokemon?.value > 0)
+const mapper = props.mapper as MapperClient
+const hasData = computed(() => mapper?.properties?.battle?.trainer?.totalPokemon?.value > 0)
 
 const enemyTeam = computed(() => {
-    return mapper.battle.trainer.team.slice(0, mapper.battle.trainer.totalPokemon.value).filter(x => x.species.value != null)
+    return mapper.properties.battle.trainer.team.slice(0, mapper.properties.battle.trainer.totalPokemon.value).filter(x => x.species.value != null)
 })
 
 const getPokemonSpriteUrl = (pokemonName: string) => `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/${pokemonName}.png`
@@ -21,7 +21,7 @@ const getPokemonSpriteUrl = (pokemonName: string) => `https://raw.githubusercont
 
 <template>
     <template v-if="hasData">
-        <Border :show="border" :title="$props.title ?? `${mapper.battle.trainer.name.value}'s Team`">
+        <Border :show="border" :title="$props.title ?? `${mapper.properties.battle.trainer.name.value}'s Team`">
             <div class="d-flex justify-content-center">
                 <div v-for="pokemon of enemyTeam">
                     <div class="position-relative fs-6 mt-4">

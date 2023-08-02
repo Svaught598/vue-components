@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { PokemonCrystalMapperClient } from '@gamehook-io/bindings/GB/PokemonCrystal'
+import { MapperClient } from '@gamehook-io/bindings/GB/PokemonCrystal.js'
 import Border from '../../components/Border.vue';
 
 const props = defineProps({
@@ -9,12 +9,12 @@ const props = defineProps({
     title: { type: String, required: false }
 })
 
-const mapper = props.mapper as PokemonCrystalMapperClient
-const hasData = computed(() => mapper?.gameTime?.frames?.value > 0)
+const mapper = props.mapper as MapperClient
+const hasData = computed(() => mapper?.properties?.gameTime?.frames?.value > 0)
 
-const hours = computed(() => mapper.gameTime.hours.value)
-const minutes = computed(() => mapper.gameTime.minutes.value)
-const seconds = computed(() => mapper.gameTime.seconds.value)
+const hours = computed(() => mapper.properties.gameTime.hours.value)
+const minutes = computed(() => mapper.properties.gameTime.minutes.value)
+const seconds = computed(() => mapper.properties.gameTime.seconds.value)
 
 const formatTime = (time: number | null) => time?.toString()?.padStart(2, '0') ?? ''
 </script>

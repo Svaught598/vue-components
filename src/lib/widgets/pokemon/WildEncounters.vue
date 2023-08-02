@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PokemonYellowMapperClient } from '@gamehook-io/bindings/GB/PokemonYellow'
+import { MapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
 import { computed } from 'vue';
 import Border from '../../components/Border.vue';
 
@@ -9,19 +9,19 @@ const props = defineProps({
     title: { type: String, required: false }
 })
 
-const mapper = props.mapper as PokemonYellowMapperClient
+const mapper = props.mapper as MapperClient
 const hasData = computed(() => {
-    if (!mapper?.game?.generation?.value) return false
-    if (mapper?.game?.generation?.value == 2) return false
+    if (!mapper?.properties?.game?.generation?.value) return false
+    if (mapper?.properties?.game?.generation?.value == 2) return false
 
-    return encounters?.value?.length > 0 && mapper?.overworld?.encounterRate?.value > 0
+    return encounters?.value?.length > 0 && mapper?.properties?.overworld?.encounterRate?.value > 0
 })
 
 const encounters = computed(() => {
     let encounters = [
-        ...mapper.overworld.encounters.common,
-        ...mapper.overworld.encounters.uncommon,
-        ...mapper.overworld.encounters.rare
+        ...mapper.properties.overworld.encounters.common,
+        ...mapper.properties.overworld.encounters.uncommon,
+        ...mapper.properties.overworld.encounters.rare
     ]
         .map(x => x.species.value.toLowerCase())
         .filter(x => x != '')
@@ -35,7 +35,7 @@ const getPokemonSpriteUrl = (pokemonName: string) => `https://raw.githubusercont
 
 <template>
     <template v-if="hasData">
-        <Border :show="props.border" :title="props.title ?? `Wild Encounters for ${mapper.overworld.map.value}`">
+        <Border :show="props.border" :title="props.title ?? `Wild Encounters for ${mapper.properties.overworld.map.value}`">
             <div class="d-flex justify-content-center">
                 <div v-for="pokemon of encounters">
                     <img class="img-sprite" :src="getPokemonSpriteUrl(pokemon)" />
