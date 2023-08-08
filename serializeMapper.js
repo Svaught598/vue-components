@@ -1,13 +1,39 @@
-import { PokemonYellowMapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
+import { MapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
 import { writeFileSync } from 'fs'
 
-const mapper = new PokemonYellowMapperClient()
+const mapper = new MapperClient()
 await mapper.connect()
 
-const dataJson = JSON.stringify(mapper, function (k, v) {
-  if (k === 'properties') return undefined;
-  if (k.startsWith('_')) return undefined;
-  else { return v; }
-}, 2)
+function removeGetters(obj) {
+    if (typeof obj !== 'object' || obj === null) {
+        return obj;
+    }
 
-await writeFileSync('./src/data/YellowMapperClientTestData.json', dataJson)
+    if (Array.isArray(obj)) {
+        return obj.map(item => removeGetters(item));
+    }
+
+    const newObj = {};
+
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key) && !key.startsWith('_')) {
+            const value = obj[key];
+            debugger;
+
+            if (typeof value === 'function' && Object.getOwnPropertyDescriptor(obj, key)?.get) {
+                debugger;
+                newObj[key] = value();
+            } else {
+                newObj[key] = removeGetters(value);
+            }
+        }
+    }
+
+    return newObj;
+}
+
+const newObject = removeGetters({ metadata: mapper.metadata, properties: mapper.properties })
+await writeFileSync('./data/YellowMapperClientTestData.json', JSON.stringify(newObject))
+console.info('File written.')
+
+process.exit()

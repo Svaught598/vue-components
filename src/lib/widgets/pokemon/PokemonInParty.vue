@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { IPokemonInParty } from '@gamehook-io/bindings/GB/PokemonYellow';
-import { computed } from 'vue';
+import { IPokemonInParty } from '@gamehook-io/bindings/GB/PokemonYellow.js'
+import { PropType, computed } from 'vue';
 import Border from '../../components/Border.vue';
 
 const props = defineProps({
-    pokemon: { type: IPokemonInParty, required: true },
+    pokemon: { type: Object as PropType<IPokemonInParty>, required: true },
     border: { type: Boolean, required: false, default: true },
     title: { type: String, required: false }
 })

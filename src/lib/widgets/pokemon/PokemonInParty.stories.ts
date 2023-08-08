@@ -13,11 +13,11 @@ export default meta;
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: { pokemon: TestData.player.team[0] }
+  args: { pokemon: TestData.properties.player.team[0] }
 }
 
 export const WithoutBorder: Story = {
-  args: { pokemon: TestData.player.team[0], border: false }
+  args: { pokemon: TestData.properties.player.team[0], border: false }
 }
 
 export const NoData: Story = {
