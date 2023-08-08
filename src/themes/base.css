@@ -1,3 +1,6 @@
+/* Bootstrap 5 will be included as a base */
+/* Base CSS that is used across all themes */
+
 .img-sprite {
     image-rendering: pixelated !important;
 }
