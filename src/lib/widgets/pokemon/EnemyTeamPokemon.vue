@@ -2,6 +2,7 @@
 import { MapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
 import { computed } from 'vue';
 import Border from '../../components/Border.vue';
+import EnemyPokemon from './EnemyPokemon.vue';
 
 const props = defineProps({
     mapper: { required: true },
@@ -15,8 +16,6 @@ const hasData = computed(() => mapper?.properties?.battle?.trainer?.totalPokemon
 const enemyTeam = computed(() => {
     return mapper.properties.battle.trainer.team.slice(0, mapper.properties.battle.trainer.totalPokemon.value).filter(x => x.species.value != null)
 })
-
-const getPokemonSpriteUrl = (pokemonName: string) => `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/${pokemonName}.png`
 </script>
 
 <template>
@@ -24,10 +23,7 @@ const getPokemonSpriteUrl = (pokemonName: string) => `https://raw.githubusercont
         <Border :show="border" :title="$props.title ?? `${mapper.properties.battle.trainer.name.value}'s Team`">
             <div class="d-flex justify-content-center">
                 <div v-for="pokemon of enemyTeam">
-                    <div class="position-relative fs-6 mt-4">
-                        <span class="position-absolute start-50 translate-middle badge rounded-pill bg-danger">Lv: {{ pokemon.level.value }}</span>
-                        <img class="img-sprite" :src="getPokemonSpriteUrl(pokemon.species.value.toLowerCase())" />
-                    </div>
+                    <EnemyPokemon :pokemon="pokemon" :border="false" />
                 </div>
             </div>
         </Border>

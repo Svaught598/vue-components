@@ -50,14 +50,8 @@ const badgeImageClass = function (x: Badge) {
 <template>
     <template v-if="hasData">
         <Border :show="border" :title="props.title">
-            <div class="d-flex">
-                <div class="m-2" v-for="badge in badges.slice(0, 4)">
-                    <img :src="badgeImageSrc(badge)" :class="badgeImageClass(badge)" />
-                </div>
-            </div>
-
-            <div class="d-flex">
-                <div class="m-2" v-for="badge in badges.slice(4, 8)">
+            <div class="grid grid-cols-4 gap-4">
+                <div v-for="badge in badges">
                     <img :src="badgeImageSrc(badge)" :class="badgeImageClass(badge)" />
                 </div>
             </div>

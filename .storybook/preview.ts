@@ -1,7 +1,7 @@
-import type { Preview } from "@storybook/vue3";
+import type { Decorator, Preview } from "@storybook/vue3";
+import { withThemeByDataAttribute } from '@storybook/addon-styling';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import '../src/themes/base.css';
+import '../src/style.css';
 
 const preview: Preview = {
   parameters: {
@@ -16,5 +16,18 @@ const preview: Preview = {
     },
   },
 };
+
+
+export const decorators = [
+  withThemeByDataAttribute({
+    themes: {
+      default: 'default',
+      pokemon: 'pokemon',
+      scott: 'scott'
+    },
+    defaultTheme: 'default',
+    attributeName: 'data-mode',
+  }),
+];
 
 export default preview;

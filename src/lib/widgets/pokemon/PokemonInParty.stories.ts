@@ -21,5 +21,5 @@ export const WithoutBorder: Story = {
 }
 
 export const NoData: Story = {
-  args: { pokemon: null }
+  args: { pokemon: TestData.properties.player.team[5] }
 }

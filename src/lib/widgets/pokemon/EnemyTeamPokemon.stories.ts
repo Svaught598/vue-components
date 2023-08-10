@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Component from './EnemyTeamPokemon.vue'
-import TestData from '../../../../data/YellowMapperClientTestData.json'
+import TestData from '../../../../data/CrystalMapperClientTestData.json'
 
 const meta = {
   title: 'Widgets/Pokemon/Enemy Team Pokemon',
@@ -12,10 +12,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Default: Story = {
   args: { mapper: TestData }
 }
 
+export const WithoutBorder: Story = {
+  args: { mapper: TestData, border: false }
+}
+
 export const NoData: Story = {
-  args: { }
+  args: { mapper: TestData }
 }

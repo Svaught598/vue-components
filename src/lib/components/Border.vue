@@ -7,7 +7,7 @@ const props = defineProps({
 
 <template>
   <template v-if="props.show">
-    <div style="border: solid 2px red; padding: 15px;">
+    <div class="m-5 p-3 border-2 border-primary-700 border-primary rounded-lg bg-gradient-to-r from-primary-500 to-primary-300">
 
       <div v-if="props.title">{{ props.title }}</div>
 
