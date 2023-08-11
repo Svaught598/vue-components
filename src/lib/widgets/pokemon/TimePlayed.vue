@@ -17,14 +17,14 @@ const formatTime = (time: number | null) => time?.toString()?.padStart(2, '0') ?
 <template>
     <template v-if="hasData">
         <Border :show="border" :title="props.title ?? 'Time Played'">
-            <div class="font-monospace text-center">
-                <span class="display-3">{{ mapper.properties.gameTime.hours.value }}</span>
-                <span class="display-5">:</span>
-                <span class="display-5">{{ formatTime(mapper.properties.gameTime.minutes.value) }}</span>
-                <span class="display-5">:</span>
-                <span class="display-5">{{ formatTime(mapper.properties.gameTime.seconds.value) }}</span>
-                <span class="display-5">.</span>
-                <span class="display-5">{{ formatTime(mapper.properties.gameTime.frames.value) }}</span>
+            <div class="text-right">
+                <span class="text-6xl font-bold">{{ mapper.properties.gameTime.hours.value }}</span>
+                <span class="text-6xl font-bold">:</span>
+                <span class="text-6xl font-bold">{{ formatTime(mapper.properties.gameTime.minutes.value) }}</span>
+                <span class="text-6xl font-bold">:</span>
+                <span class="text-6xl font-bold">{{ formatTime(mapper.properties.gameTime.seconds.value) }}</span>
+                <span class="text-2xl">.</span>
+                <span class="text-2xl">{{ formatTime(mapper.properties.gameTime.frames.value) }}</span>
             </div>
         </Border>
     </template>
