@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Component from './EnemyPokemon.vue'
-import TestData from '../../../../data/YellowMapperClientTestData.json'
+import TestData from '../../../../data/CrystalMapperClientTestData.json'
 
 const meta = {
   title: 'Widgets/Pokemon/Enemy Pokemon',

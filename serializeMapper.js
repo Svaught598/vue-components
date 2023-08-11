@@ -1,4 +1,4 @@
-import { MapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
+import { MapperClient } from '@gamehook-io/bindings/GB/PokemonCrystal.js'
 import { writeFileSync } from 'fs'
 
 const mapper = new MapperClient()
@@ -33,7 +33,7 @@ function removeGetters(obj) {
 }
 
 const newObject = removeGetters({ metadata: mapper.metadata, properties: mapper.properties })
-await writeFileSync('./data/YellowMapperClientTestData.json', JSON.stringify(newObject))
+await writeFileSync('./data/CrystalMapperClientTestData.json', JSON.stringify(newObject))
 console.info('File written.')
 
 process.exit()
