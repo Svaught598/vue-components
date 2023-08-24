@@ -2,6 +2,7 @@
 import { MapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
 import { computed } from 'vue';
 import Border from '../../components/Border.vue';
+import { getPokemonImageUrlFromDexNumber } from '../../../util/pokemon';
 
 const props = defineProps({
     mapper: { required: true },
@@ -22,23 +23,19 @@ const encounters = computed(() => {
         ...mapper.properties.overworld.encounters.common,
         ...mapper.properties.overworld.encounters.uncommon,
         ...mapper.properties.overworld.encounters.rare
-    ]
-        .map(x => x.species.value.toLowerCase())
-        .filter(x => x != '')
+    ].map(x => x.pokedexNumber.value).filter(x => x != 0)
 
     let encountersSet = new Set(encounters)
     return Array.from(encountersSet)
 })
-
-const getPokemonSpriteUrl = (pokemonName: string) => `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/${pokemonName}.png`
 </script>
 
 <template>
     <template v-if="hasData">
         <Border :show="props.border" :title="props.title ?? `Wild Encounters for ${mapper.properties.overworld.map.value}`">
-            <div class="d-flex justify-content-center">
-                <div v-for="pokemon of encounters">
-                    <img class="img-sprite" :src="getPokemonSpriteUrl(pokemon)" />
+            <div class="grid grid-flow-col gap-4">
+                <div v-for="pokedexNumber of encounters">
+                    <img class="m-3" style="width: 64px; height: 64px;" :src="getPokemonImageUrlFromDexNumber(pokedexNumber)" />
                 </div>
             </div>
         </Border>

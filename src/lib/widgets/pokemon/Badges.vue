@@ -40,19 +40,19 @@ const badges = computed(() => {
 const badgeImageSrc = (x: Badge) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/badges/${x.number}.png`
 const badgeImageClass = function (x: Badge) {
     if (x.value) {
-        return ['img-sprite']
+        return ['m-1']
     } else {
-        return ['img-sprite', 'img-grayscale', 'img-transparent-85']
+        return ['m-1', 'img-grayscale', 'img-transparent-85']
     }
 }
 </script>
 
 <template>
     <template v-if="hasData">
-        <Border :show="border" :title="props.title">
-            <div class="grid grid-cols-4 gap-4">
+        <Border :show="border" :title="'Badges' ?? props.title">
+            <div class="mt-2 grid grid-cols-4 gap-4">
                 <div v-for="badge in badges">
-                    <img :src="badgeImageSrc(badge)" :class="badgeImageClass(badge)" />
+                    <img :src="badgeImageSrc(badge)" :class="badgeImageClass(badge)" style="width: 64px; height: 64px;" />
                 </div>
             </div>
         </Border>

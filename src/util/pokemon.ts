@@ -1,5 +1,6 @@
-export const getPokemonSpriteUrlFromName = (pokemonName: string) => `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/${pokemonName}.png`
-export const getPokemonSpriteUrlFromDex = (pokedexNumber: Number) => `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/${pokedexNumber}.png`
+export const getPokemonSpriteUrlFromName = (pokemonName: string) => `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/${pokemonName.toLowerCase()}.png`
+export const getPokemonImageUrlFromDexNumber = (pokedexNumber: Number) => `https://github.com/HybridShivam/Pokemon/blob/master/assets/thumbnails-compressed/${pokedexNumber.toString().padStart(3, '0')}.png?raw=true`
+export const getPokemonImageHqUrlFromDexNumber = (pokedexNumber: Number) => `https://github.com/HybridShivam/Pokemon/blob/master/assets/thumbnails-compressed/${pokedexNumber.toString().padStart(3, '0')}.png?raw=true`
 
 export class PokemonStatsCalculation {
     hp: Number = 0

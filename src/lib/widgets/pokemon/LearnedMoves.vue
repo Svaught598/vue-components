@@ -10,6 +10,6 @@ const props = defineProps({
 
 <template>
     <Border :show="border" :title="title">
-        Movepool
+        Learned Moves
     </Border>
 </template>

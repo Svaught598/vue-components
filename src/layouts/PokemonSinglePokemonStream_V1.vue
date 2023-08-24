@@ -2,12 +2,10 @@
 import { MapperClient } from '@gamehook-io/bindings/GB/PokemonYellow.js'
 import { computed } from 'vue';
 
-import TimePlayed from '../widgets/pokemon/TimePlayed.vue';
+import TimePlayed from '../lib/widgets/pokemon/TimePlayed.vue';
 
 const props = defineProps({
-    mapper: { required: true },
-    border: { type: Boolean, required: false, default: true },
-    title: { type: String, required: false }
+    mapper: { required: true }
 })
 
 const mapper = props.mapper as MapperClient

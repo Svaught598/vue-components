@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import Component from './Movepool.vue'
+import Component from './LearnedMoves.vue'
 
 const meta = {
-  title: 'Widgets/Pokemon/Movepool',
+  title: 'Widgets/Pokemon/Learned Moves',
   component: Component,
   tags: ['autodocs'],
   argTypes: {},

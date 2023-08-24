@@ -1,16 +1,24 @@
 <script setup lang="ts">
-import Border from '../../components/Border.vue';
-import { getPokemonSpriteUrlFromDex } from '../../../util/pokemon'
+import { IPokemonInParty } from '@gamehook-io/bindings/GB/PokemonYellow.js'
+import { computed, PropType } from 'vue';
+import { getPokemonSpriteUrlFromName } from '../../../util/pokemon'
 
 const props = defineProps({
-    pokedexNumber: { type: Number, required: true },
-    border: { type: Boolean, required: false, default: true },
-    title: { type: String, required: false }
+    pokemon: { type: Object as PropType<IPokemonInParty>, required: true }
 })
+
+const hasData = computed(() => props.pokemon?.species?.value)
+
+const imgStyle = {
+    backgroundImage: `url(${getPokemonSpriteUrlFromName(props.pokemon.species.value.toLocaleLowerCase())})`
+}
 </script>
 
 <template>
-    <Border :show="props.border" :title="props.title">
-        <img :src="getPokemonSpriteUrlFromDex(pokedexNumber)" />
-    </Border>
+    <template v-if="hasData">
+        <div
+            class="bg-cover bg-center"
+            :style="imgStyle">
+        </div>
+    </template>
 </template>
