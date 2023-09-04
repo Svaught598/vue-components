@@ -2,11 +2,11 @@
 import { computed, ref, watch } from 'vue'
 import { StateManager, WorldState } from '@gamehook-io/bindings/extras/PokemonStateManager'
 import { MapperClient } from "@gamehook-io/bindings/GB/PokemonCrystal.js";
-import CrystalData from '../../../data/CrystalMapperClientTestData.json'
 
-// setup mapper 
-const mapper = ref(CrystalData as unknown as MapperClient);
-const worldState = computed(() => new StateManager(mapper.value.properties as unknown as MapperClient))
+// setup mapper
+const mapperInstance = new MapperClient()
+const mapper = ref(() => mapperInstance)
+const worldState = computed(() => new StateManager(mapperInstance))
 
 // local state needed
 const timerHasStarted = ref(false);
