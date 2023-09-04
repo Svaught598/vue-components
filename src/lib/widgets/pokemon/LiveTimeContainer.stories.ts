@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import Border from './Border.vue'
+import LiveTimeContainer from './LiveTimeContainer.vue'
 
 const meta = {
-  title: 'atoms/Border',
-  component: Border,
+  title: 'Widgets/Pokemon/LiveTime',
+  component: LiveTimeContainer,
   tags: ['autodocs'],
   argTypes: {
     show: { type: "boolean", default: true },
-    title: { type: "string", default: "Border" },
+    title: { type: "string", default: "LiveTimeContainer" },
   },
-} satisfies Meta<Border>;
+} satisfies Meta<LiveTimeContainer>
 
 type Story = StoryObj<typeof meta>;
 
