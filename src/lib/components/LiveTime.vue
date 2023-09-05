@@ -3,6 +3,10 @@ import { computed, ref, watch } from 'vue'
 import { StateManager, WorldState } from '@gamehook-io/bindings/extras/PokemonStateManager'
 import { MapperClient } from "@gamehook-io/bindings/GB/PokemonCrystal.js";
 
+defineProps({
+  mapper: { type: MapperClient, required: true },
+})
+
 // setup mapper
 const mapperInstance = new MapperClient()
 const mapper = ref(() => mapperInstance)
