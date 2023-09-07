@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import LiveTimeContainer from './LiveTimeContainer.vue'
+import TestData from '../../../../data/CrystalMapperClientTestData.json'
 
 const meta = {
   title: 'Widgets/Pokemon/LiveTime',
@@ -17,6 +18,6 @@ export default meta;
 
 // static data
 export const Default: Story = {
-  args: { show: true, title: "Border" },
+  args: { show: true, title: "Border", mapper: TestData },
 }
 
