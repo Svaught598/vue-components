@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, computed } from 'vue';
 import { IPokemonInParty } from '@gamehook-io/bindings/GB/PokemonCrystal';
+import Moves from '../../../../data/pokemon-gen-2/moves.json';
 import Border from '../../components/Border.vue';
 
 const props = defineProps({
@@ -8,27 +9,34 @@ const props = defineProps({
   border: { type: Boolean, required: false, default: true },
   title: { type: String, required: false }
 })
+
+const moves = computed(() => {
+  const AllMoves = Moves.moves;
+  return props.pokemon?.moves
+    .map(mv => AllMoves.find((m) => m.name === mv.type.value));
+});
 </script>
 
 <template>
-  <Border :show="border" :title="'Moves' ?? title">
-    <table>
-      <thead>
-        <tr>
-          <th>Moves</th>
-          <th>Pwr.</th>
-          <th>Acc.</th>
-          <th>PP</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="move in pokemon.moves">
-          <td>{{ move.type?.value ?? '--' }}</td>
-          <td>-</td>
-          <td>-</td>
-          <td>{{ move.pp?.value ?? '--' }}</td>
-        </tr>
-      </tbody>
+  <Border :show="border">
+    <table class="w-full font-bold">
+      <tr class="text-sm border-1 border-b border-primary-600 leading-3">
+        <th class="text-left">Moves</th>
+        <th class="text-right">Pwr.</th>
+        <th class="text-right">Acc.</th>
+        <th class="text-right">PP</th>
+      </tr>
+
+      <tr class="text-sm font-bold leading-6" v-for="move in moves">
+        <td class="text-left flex flex-row items-center gap-2">
+          <img height="24" width="24" class="border border-primary-900 rounded-full"
+            :src="`../../../../data/pokemon-gen-2/images/type-icons-circular/${move?.type?.toLowerCase()}.png`" />
+          {{ move?.name ?? '--' }}
+        </td>
+        <td class="text-right">{{ move?.base_power ?? '--' }}</td>
+        <td class="text-right">{{ move?.accuracy ?? '--' }}%</td>
+        <td class="text-right">{{ move?.pp ?? '--' }}</td>
+      </tr>
     </table>
   </Border>
 </template>
