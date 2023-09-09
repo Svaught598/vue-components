@@ -9,7 +9,6 @@ defineProps({
 
 // setup mapper
 const mapperInstance = new MapperClient()
-const mapper = ref(() => mapperInstance)
 const worldState = computed(() => new StateManager(mapperInstance))
 
 // local state needed
@@ -72,7 +71,7 @@ const startTimer = () => {
   <div v-if="timerHasStarted" class="font-mono font-bold w-full text-right text-black text-5xl">
     {{ gameTime }}<span class="text-xl">{{ gameTimeMs }}</span>
   </div>
-  <div v-else class="w-full text-right text-black text-xl">
+  <div v-else class="w-full font-secondary text-right text-black text-xl">
     Start new game in emulator to begin timer
   </div>
 </template>

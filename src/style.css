@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    src: url(fonts/TitanOne-Regular.ttf);
+    font-family: primary;
+}
+
+@font-face {
+    src: url(fonts/Play-Bold.ttf);
+    font-family: secondary;
+}

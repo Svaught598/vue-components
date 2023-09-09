@@ -19,15 +19,15 @@ const moves = computed(() => {
 
 <template>
   <Border :show="border">
-    <table class="w-full font-bold">
-      <tr class="text-sm border-1 border-b border-primary-600 leading-3">
+    <table class="w-full">
+      <tr class="font-primary text-sm border-1 border-b border-primary-600 leading-3">
         <th class="text-left">Moves</th>
         <th class="text-right">Pwr.</th>
         <th class="text-right">Acc.</th>
         <th class="text-right">PP</th>
       </tr>
 
-      <tr class="text-sm font-bold leading-6" v-for="move in moves">
+      <tr class="font-secondary text-sm leading-6" v-for="move in moves">
         <td class="text-left flex flex-row items-center gap-2">
           <img height="24" width="24" class="border border-primary-900 rounded-full"
             :src="`../../../../data/pokemon-gen-2/images/type-icons-circular/${move?.type?.toLowerCase()}.png`" />

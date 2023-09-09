@@ -23,8 +23,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Graphik', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
+        primary: ['primary', 'sans-serif'],
+        secondary: ['secondary', 'sans-serif'],
+        mono: ['mono'],
       },
     }
   },
