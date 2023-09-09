@@ -1,24 +1,25 @@
 <script setup lang="ts">
-import { IPokemonInParty } from '@gamehook-io/bindings/GB/PokemonYellow.js'
+import { IPokemonInParty } from '@gamehook-io/bindings/GB/PokemonCrystal.js'
 import { computed, PropType } from 'vue';
-import { getPokemonSpriteUrlFromName } from '../../../util/pokemon'
+import { getPokemonImageHqUrlFromDexNumber } from '../../../util/pokemon'
 
 const props = defineProps({
-    pokemon: { type: Object as PropType<IPokemonInParty>, required: true }
+  pokemon: { type: Object as PropType<IPokemonInParty>, required: true },
+  class: { type: String, required: false },
 })
 
-const hasData = computed(() => props.pokemon?.species?.value)
+// this line is a silly workaround because vue compiler treats class as 
+// a reserved keyword and fails to parse the template correctly
+// TODO: there may be a more idiomatic way to do this in vue
+const extraClasses = computed(() => props.class ? props.class : '');
 
-const imgStyle = {
-    backgroundImage: `url(${getPokemonSpriteUrlFromName(props.pokemon.species.value.toLocaleLowerCase())})`
-}
+const imgSrc = computed(() =>
+  (props?.pokemon?.species?.value)
+    ? getPokemonImageHqUrlFromDexNumber(props.pokemon.pokedexNumber.value)
+    : undefined
+);
 </script>
 
 <template>
-    <template v-if="hasData">
-        <div
-            class="bg-cover bg-center"
-            :style="imgStyle">
-        </div>
-    </template>
+  <img v-if="imgSrc" :src="imgSrc" :class="`${extraClasses} object-fill`">
 </template>
