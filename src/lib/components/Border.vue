@@ -9,7 +9,7 @@ defineProps({
   <div v-show="show"
     class="gh-border m-5 py-1 px-2 border-2 border-primary-700 border-primary rounded-lg bg-gradient-to-r from-primary-500 to-primary-300">
 
-    <div v-if="title" class="text-xs font-bold border-b border-primary-600 border-1">
+    <div v-if="title" class="font-primary text-xs font-bold border-b border-primary-600 border-1">
       {{ title }}
     </div>
 
