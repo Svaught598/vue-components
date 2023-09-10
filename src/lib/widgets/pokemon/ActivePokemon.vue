@@ -64,7 +64,7 @@ const expPercentageStyle = computed(() => {
 
     <Border :show="border">
       <!-- Experience Container -->
-      <div class="font-secondary text-center text-xl">Level {{ pokemon?.level.value ?? '???' }}</div>
+      <div class="font-primary text-center text-xl">Level {{ pokemon?.level.value ?? '???' }}</div>
       <div class="w-full flex rounded border border-black bg-slate-200">
         <div class="z-10 font-secondary px-1 flex-1 bg-slate-200 rounded border-r border-black">
           Exp.
