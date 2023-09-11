@@ -41,3 +41,4 @@ const encounters = computed(() => {
     </Border>
   </template>
 </template>
+../../../util/pokemon/pokemon

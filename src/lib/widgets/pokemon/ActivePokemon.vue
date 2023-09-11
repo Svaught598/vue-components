@@ -4,8 +4,8 @@ import { computed } from 'vue';
 import Border from '../../components/Border.vue';
 import PokemonImage from './PokemonImage.vue';
 import TypeTag from './TypeTag.vue';
-import AllPokemon from '../../../../data/pokemon-gen-2/pokemon_crystal.json';
-import ExpInfo from '../../../../data/pokemon-gen-2/exp.json';
+import AllPokemon from '../../../util/pokemon/pokemon-gen-2/pokemon_crystal.json';
+import ExpInfo from '../../../util/pokemon/pokemon-gen-2/exp.json';
 import { titleCase } from '../../../util/strings';
 
 const props = defineProps({

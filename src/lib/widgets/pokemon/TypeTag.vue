@@ -5,5 +5,5 @@ defineProps({
 </script>
 
 <template>
-  <img width="112" :src="`../../../../data/pokemon-gen-2/images/type-icons/${type.toLocaleLowerCase()}.png`" />
+  <img width="112" :src="`../../../../util/pokemon/images/type-icons/${type.toLocaleLowerCase()}.png`" />
 </template>

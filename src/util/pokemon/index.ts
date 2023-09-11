@@ -1,3 +1,5 @@
+import { IPokemonInParty } from "@gamehook-io/bindings/GB/PokemonCrystal"
+
 export const getPokemonSpriteUrlFromName = (pokemonName: string) =>
   `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/${pokemonName.toLowerCase()}.png`
 
@@ -9,19 +11,22 @@ export const getPokemonImageHqUrlFromDexNumber = (pokedexNumber: Number) =>
 
 export class PokemonStatsCalculation {
   hp: Number = 0
+  maxHp: Number = 0
   attack: Number = 0
   defense: Number = 0
   specialAttack: Number = 0
   specialDefense: Number = 0
+  speed: Number = 0
 }
 
-export function getPokemonStats(mapper: any, pokemon: any): PokemonStatsCalculation {
+export function getPokemonStats(mapper: any, pokemon: IPokemonInParty): PokemonStatsCalculation {
   return {
-    hp: 12,
-    attack: 32,
-    defense: 55,
-    specialAttack: 1,
-    specialDefense: 3
+    hp: pokemon.stats.hp.value,
+    maxHp: pokemon.stats.maxHp.value,
+    attack: pokemon.stats.attack.value,
+    defense: pokemon.stats.defense.value,
+    specialAttack: pokemon.stats.specialAttack.value,
+    specialDefense: pokemon.stats.specialDefense.value,
+    speed: pokemon.stats.speed.value
   }
 }
-
