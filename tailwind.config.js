@@ -21,6 +21,22 @@ export default {
           '900': '#50376c',
           '950': '#341f4c',
         },
+        stats: {
+          'hp-light': '#ff5959',
+          'hp-dark': '#ff0000',
+          'atk-light': '#f5ac78',
+          'atk-dark': '#f08030',
+          'def-light': '#fae078',
+          'def-dark': '#f7c80c',
+          'spc-light': '#8ec7bc',
+          'spc-dark': '#28917c',
+          'spd-light': '#fa92b2',
+          'spd-dark': '#e95380',
+          'spcAtk-light': '#9db7f5',
+          'spcAtk-dark': '#6890f0',
+          'spcDef-light': '#a7db8d',
+          'spcDef-dark': '#78c850',
+        }
       },
       fontFamily: {
         primary: ['primary', 'sans-serif'],
