@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType, computed } from 'vue';
 import { IPokemonInParty } from '@gamehook-io/bindings/GB/PokemonCrystal';
-import Moves from '../../../../data/pokemon-gen-2/moves.json';
+import Moves from '../../../util/pokemon/pokemon-gen-2/moves.json';
 import Border from '../../components/Border.vue';
 
 const props = defineProps({
@@ -30,7 +30,7 @@ const moves = computed(() => {
       <tr class="font-secondary text-sm leading-6" v-for="move in moves">
         <td class="text-left flex flex-row items-center gap-2">
           <img height="24" width="24" class="border border-primary-900 rounded-full"
-            :src="`../../../../data/pokemon-gen-2/images/type-icons-circular/${move?.type?.toLowerCase()}.png`" />
+            :src="`pokemon/type-icons-circular/${move?.type?.toLowerCase()}.png`" />
           {{ move?.name ?? '--' }}
         </td>
         <td class="text-right">{{ move?.base_power ?? '--' }}</td>

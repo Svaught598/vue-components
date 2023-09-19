@@ -17,6 +17,9 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
-  }
+  },
+  staticDirs: [
+    { from: '../src/util/pokemon/images/', to: 'pokemon' },
+  ]
 };
 export default config;
