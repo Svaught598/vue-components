@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import Stats from './Stats.vue';
+import BigStats from './BigStats.vue';
 import TestData from '../../../../data/CrystalMapperClientTestData.json'
 
 const meta = {
   title: 'atoms/Stats',
-  component: Stats,
+  component: BigStats,
   tags: ['autodocs'],
-} satisfies Meta<Stats>;
+} satisfies Meta<BigStats>;
 
 type Story = StoryObj<typeof meta>;
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { IPokemonInParty, MapperClient } from '@gamehook-io/bindings/GB/PokemonCrystal';
-import { computed } from 'vue';
+import { PropType, computed } from 'vue';
 import { getPokemonStats } from '../../../util/pokemon';
 
 const props = defineProps({
-  mapper: { required: true },
+  mapper: { type: Object as PropType<MapperClient>, required: true },
 });
 
 const mapper = props.mapper as MapperClient;

@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { IPokemonInParty, MapperClient } from '@gamehook-io/bindings/GB/PokemonCrystal.js'
 import AllPokemon from '../../../util/pokemon/pokemon-gen-2/pokemon_crystal.json';
 import Border from '../../components/Border.vue';
-import Stats from '../../components/pokemon/Stats.vue';
+import Stats from '../../components/pokemon/BigStats.vue';
 import Experience from '../../components/pokemon/Experience.vue';
 import PokemonImage from './PokemonImage.vue';
 import TypeTag from './TypeTag.vue';
