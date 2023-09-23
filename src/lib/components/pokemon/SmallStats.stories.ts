@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import BigStats from './BigStats.vue';
+import SmallStats from './SmallStats.vue';
 import TestData from '../../../../data/CrystalMapperClientTestData.json'
 
 const meta = {
-  title: 'atoms/BigStats',
-  component: BigStats,
+  title: 'atoms/SmallStats',
+  component: SmallStats,
   tags: ['autodocs'],
-} satisfies Meta<BigStats>;
+} satisfies Meta<SmallStats>;
 
 type Story = StoryObj<typeof meta>;
 
 export default meta;
 
 export const Default: Story = {
-  args: { mapper: TestData },
+  args: { mapper: TestData, pokemon: TestData.properties.battle.trainer.team[0] },
 }
 
