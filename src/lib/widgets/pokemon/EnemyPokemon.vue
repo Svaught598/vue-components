@@ -14,12 +14,13 @@ const props = defineProps({
 });
 
 const moves = computed(() => props.pokemon.moves.map(move => titleCase(move.type.value)))
+const faintedClasses = computed(() => props.pokemon.stats.hp.value === 0 ? "opacity-30 grayscale" : "");
 </script>
 
 <template>
   <Border :show="border">
     <div class="flex flex-row">
-      <div class="w-1/2 flex flex-row gap-1">
+      <div :class="`w-1/2 flex flex-row gap-1 ${faintedClasses}`">
         <div class="flex-5 flex flex-col">
           <h2 class="font-primary text-md text-center">{{ pokemon.species.value }}</h2>
           <PokemonImage :pokemon="pokemon" />
@@ -33,7 +34,7 @@ const moves = computed(() => props.pokemon.moves.map(move => titleCase(move.type
       <div class="w-1/2 pl-[1px] font-secondary text-center flex flex-col gap-[1px]">
         <div v-for="move in moves"
           class="flex justify-center items-center flex-1 px-2 drop-shadow-2xl bg-gradient-to-t border rounded border-black">
-          <p>{{ move }}</p>
+          <p :class="faintedClasses">{{ move }}</p>
         </div>
       </div>
     </div>

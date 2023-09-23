@@ -23,7 +23,7 @@ const enemyPokemon = computed(() => {
 
 <template>
   <div class="flex flex-col gap-2">
-    <Border class="font-primary text-xl text-center" :show="border">{{ props.title ?? enemyTrainerName }}</Border>
+    <Border :show="border">{{ props.title ?? enemyTrainerName }}</Border>
     <EnemyPokemon v-for="pokemon of enemyPokemon" :mapper="mapper" :pokemon="pokemon" />
   </div>
 </template>

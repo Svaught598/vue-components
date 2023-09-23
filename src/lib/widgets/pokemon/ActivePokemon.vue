@@ -41,7 +41,7 @@ const types = computed(() => {
       </div>
     </div>
 
-    <Border :show="border">
+    <Border class="m-5" :show="border">
       <Experience :pokemon="pokemon" :expBarColor="expBarColor" />
       <Stats :mapper="mapper" />
     </Border>
