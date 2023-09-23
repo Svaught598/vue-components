@@ -43,6 +43,7 @@ export default {
         secondary: ['secondary', 'sans-serif'],
         mono: ['mono'],
       },
+      flex: Object.fromEntries(Array.from({ length: 12 }, (_, i) => [i, `${i} ${i} 0%`])),
     }
   },
   plugins: [],

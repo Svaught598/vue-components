@@ -23,4 +23,4 @@ const imgSrc = computed(() =>
 <template>
   <img v-if="imgSrc" :src="imgSrc" :class="`${extraClasses} object-fill`">
 </template>
-../../../util/pokemon/pokemon
+
