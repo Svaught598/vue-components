@@ -16,7 +16,7 @@ const styles = computed(() => !item.value ? "opacity-0" : "")
     component is hidden with opacity if no item 
     (still present in DOM, and blocks other content from filling empty space) 
   -->
-  <div :class="styles" class="transition-all leading-none">
+  <div :class="styles" class="transition-all duration-1000 leading-none">
     <div class="relative h-full w-full flex flex-row items-center font-secondary text-xl">
       <Border :show="true" class="absolute w-full h-full"></Border>
       <Border class="px-1 flex-1 opacity-50 z-10">Item:</Border>
