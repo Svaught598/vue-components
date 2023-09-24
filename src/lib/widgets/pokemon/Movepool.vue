@@ -23,15 +23,15 @@ type Move = {
 }
 
 const makeMove = (moveName: string, way: string): Move => {
-  const moveData = AllMoves.moves.find(mv => mv.name === moveName);
+  const moveData = AllMoves[moveName];
   return ({
     way,
-    move: moveData?.name,
-    type: moveData?.name === 'Curse' ? '???' : moveData?.type,
-    power: moveData?.base_power == 0 ? '-' : moveData?.base_power,
-    accuracy: moveData?.accuracy ?? '-',
-    pp: moveData?.pp,
-    class: getTypeBg(moveData?.name, moveData?.type),
+    move: moveData.Move,
+    type: moveData.Move === 'Curse' ? '???' : moveData.Type,
+    power: moveData.Power,
+    accuracy: moveData.Accuracy,
+    pp: moveData?.PP,
+    class: getTypeBg(moveData?.Move, moveData?.Type),
   } as Move);
 }
 
