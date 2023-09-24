@@ -22,6 +22,23 @@ type Move = {
   class?: string;
 }
 
+const makeMove = (moveName: string, way: string): Move => {
+  const moveData = AllMoves.moves.find(mv => mv.name === moveName);
+  return ({
+    way,
+    move: moveData?.name,
+    type: moveData?.name === 'Curse' ? '???' : moveData?.type,
+    power: moveData?.base_power == 0 ? '-' : moveData?.base_power,
+    accuracy: moveData?.accuracy ?? '-',
+    pp: moveData?.pp,
+    class: getTypeBg(moveData?.name, moveData?.type),
+  } as Move);
+}
+
+const getTypeBg = (move?: string, type?: string) => {
+  if (!move || !type) return;
+  return move === 'Curse' ? 'bg-curse' : `bg-${type.toLowerCase()}`;
+}
 
 // order of logic matter here
 // because it sorts the moves by 
@@ -36,59 +53,35 @@ const moves = computed(() => {
     .concat(AllPokemon[species].egg_moves.map((m: string) => [1, m] as LvlUpMove))
     .sort((a, b) => a[0] - b[0]);
 
-  const getTypeBg = (move?: string, type?: string) => {
-    if (!move || !type) return;
-    return move === 'Curse' ? 'bg-curse' : `bg-${type.toLowerCase()}`;
-  }
-
   // amend moves with extra data from moves.json
-  const moves = lvlUpMoves.map(m => {
-    const moveData = AllMoves.moves.find(mv => mv.name === m[1]);
-    return ({
-      way: m[0].toString(),
-      move: moveData?.name,
-      type: moveData?.name === 'Curse' ? '???' : moveData?.type,
-      power: moveData?.base_power,
-      accuracy: moveData?.accuracy,
-      pp: moveData?.pp,
-      class: getTypeBg(moveData?.name, moveData?.type),
-    } as Move);
-  });
-
-  return moves.concat(tmHmMoves.map(moveName => {
-    const moveData = AllMoves.moves.find(mv => mv.name === moveName);
-    const tmhm = AllTMHMs.find(tm => tm.move === moveName);
-    return ({
-      way: tmhm?.tmhmIndex ?? "TM01",
-      move: moveData?.name,
-      type: moveData?.name === 'Curse' ? '???' : moveData?.type,
-      power: moveData?.base_power,
-      accuracy: moveData?.accuracy,
-      pp: moveData?.pp,
-      class: getTypeBg(moveData?.name, moveData?.type),
-    } as Move);
-  }));
+  return lvlUpMoves
+    .map(([lvl, mv]) => makeMove(mv, lvl.toString()))
+    .concat(tmHmMoves.map(moveName => {
+      const tmhm = AllTMHMs.find(tm => tm.move === moveName);
+      return makeMove(moveName.toString(), tmhm?.tmhmIndex ?? "TM01");
+    }));
 });
 </script>
 
 <template>
-  <Border :show="true" title="Movepool">
-    <table class="border-2 border-black border-collapse text-sm font-secondary text-left">
-      <tr class="border-2 border-black bg-primary-500 p-1">
+  <Border :show="true">
+    <h2 class="text-xl font-primary text-center mt-[-4px]">Movepool</h2>
+    <table class="leading-none border-2 border-black border-collapse text-sm font-secondary text-left">
+      <tr class="h-1 border-2 border-black bg-primary-500 p-1">
         <th>Way</th>
         <th>Move</th>
         <th class="text-center">Type</th>
-        <th>Pwr.</th>
-        <th>Acc.</th>
-        <th>PP</th>
+        <th class="text-right">Pwr.</th>
+        <th class="text-right">Acc.</th>
+        <th class="text-right">PP</th>
       </tr>
-      <tr class="even:bg-gray-300 odd:bg-white p-1" v-for="move in moves" :key="move.move">
+      <tr class="h-1 even:bg-gray-300 odd:bg-white p-1" v-for="move in moves" :key="move.move">
         <td class="px-1">{{ move.way }}</td>
         <td class="px-1">{{ move.move }}</td>
         <td :class="'px-1 text-center ' + move.class">{{ move.type }}</td>
-        <td class="px-1">{{ move.power }}</td>
-        <td class="px-1">{{ move.accuracy }}</td>
-        <td class="px-1">{{ move.pp }}</td>
+        <td class="px-1 text-right">{{ move.power }}</td>
+        <td class="px-1 text-right">{{ move.accuracy }}%</td>
+        <td class="px-1 text-right">{{ move.pp }}</td>
       </tr>
     </table>
   </Border>
