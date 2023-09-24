@@ -1,0 +1,217 @@
+[
+  {
+    "tmhmIndex": "TM01",
+    "move": "DynamicPunch"
+  },
+  {
+    "tmhmIndex": "TM02",
+    "move": "Headbutt"
+  },
+  {
+    "tmhmIndex": "TM03",
+    "move": "Curse"
+  },
+  {
+    "tmhmIndex": "TM04",
+    "move": "Rollout"
+  },
+  {
+    "tmhmIndex": "TM05",
+    "move": "Roar"
+  },
+  {
+    "tmhmIndex": "TM06",
+    "move": "Toxic"
+  },
+  {
+    "tmhmIndex": "TM07",
+    "move": "Zap Cannon"
+  },
+  {
+    "tmhmIndex": "TM08",
+    "move": "Rock Smash"
+  },
+  {
+    "tmhmIndex": "TM09",
+    "move": "Psych Up"
+  },
+  {
+    "tmhmIndex": "TM10",
+    "move": "Hidden Power"
+  },
+  {
+    "tmhmIndex": "TM11",
+    "move": "Sunny Day"
+  },
+  {
+    "tmhmIndex": "TM12",
+    "move": "Sweet Scent"
+  },
+  {
+    "tmhmIndex": "TM13",
+    "move": "Snore"
+  },
+  {
+    "tmhmIndex": "TM14",
+    "move": "Blizzard"
+  },
+  {
+    "tmhmIndex": "TM15",
+    "move": "Hyper Beam"
+  },
+  {
+    "tmhmIndex": "TM16",
+    "move": "Icy Wind"
+  },
+  {
+    "tmhmIndex": "TM17",
+    "move": "Protect"
+  },
+  {
+    "tmhmIndex": "TM18",
+    "move": "Rain Dance"
+  },
+  {
+    "tmhmIndex": "TM19",
+    "move": "Giga Drain"
+  },
+  {
+    "tmhmIndex": "TM20",
+    "move": "Endure"
+  },
+  {
+    "tmhmIndex": "TM21",
+    "move": "Frustration"
+  },
+  {
+    "tmhmIndex": "TM22",
+    "move": "SolarBeam"
+  },
+  {
+    "tmhmIndex": "TM23",
+    "move": "Iron Tail"
+  },
+  {
+    "tmhmIndex": "TM24",
+    "move": "DragonBreath"
+  },
+  {
+    "tmhmIndex": "TM25",
+    "move": "Thunder"
+  },
+  {
+    "tmhmIndex": "TM26",
+    "move": "Earthquake"
+  },
+  {
+    "tmhmIndex": "TM27",
+    "move": "Return"
+  },
+  {
+    "tmhmIndex": "TM28",
+    "move": "Dig"
+  },
+  {
+    "tmhmIndex": "TM29",
+    "move": "Psychic"
+  },
+  {
+    "tmhmIndex": "TM30",
+    "move": "Shadow Ball"
+  },
+  {
+    "tmhmIndex": "TM31",
+    "move": "Mud-Slap"
+  },
+  {
+    "tmhmIndex": "TM32",
+    "move": "Double Team"
+  },
+  {
+    "tmhmIndex": "TM33",
+    "move": "Ice Punch"
+  },
+  {
+    "tmhmIndex": "TM34",
+    "move": "Swagger"
+  },
+  {
+    "tmhmIndex": "TM35",
+    "move": "Sleep Talk"
+  },
+  {
+    "tmhmIndex": "TM36",
+    "move": "Sludge Bomb"
+  },
+  {
+    "tmhmIndex": "TM37",
+    "move": "Sandstorm"
+  },
+  {
+    "tmhmIndex": "TM38",
+    "move": "Fire Blast"
+  },
+  {
+    "tmhmIndex": "TM39",
+    "move": "Swift"
+  },
+  {
+    "tmhmIndex": "TM40",
+    "move": "Defense Curl"
+  },
+  {
+    "tmhmIndex": "TM41",
+    "move": "ThunderPunch"
+  },
+  {
+    "tmhmIndex": "TM42",
+    "move": "Dream Eater"
+  },
+  {
+    "tmhmIndex": "TM43",
+    "move": "Detect"
+  },
+  {
+    "tmhmIndex": "TM44",
+    "move": "Rest"
+  },{
+    "tmhmIndex": "TM45",
+    "move": "Attract"
+  },{
+    "tmhmIndex": "TM46",
+    "move": "Thief"
+  },{
+    "tmhmIndex": "TM47",
+    "move": "Steel Wing"
+  },{
+    "tmhmIndex": "TM48",
+    "move": "Fire Punch"
+  },{
+    "tmhmIndex": "TM49",
+    "move": "Fury Cutter"
+  },{
+    "tmhmIndex": "TM50",
+    "move": "Nightmare"
+  },{
+    "tmhmIndex": "HM01",
+    "move": "Cut"
+  },{
+    "tmhmIndex": "HM02",
+    "move": "Fly"
+  },{
+    "tmhmIndex": "HM03",
+    "move": "Surf"
+  },{
+    "tmhmIndex": "HM04",
+    "move": "Strength"
+  },{
+    "tmhmIndex": "HM05",
+    "move": "Flash"
+  },{
+    "tmhmIndex": "HM06",
+    "move": "Whirlpool"
+  },{
+    "tmhmIndex": "HM07",
+    "move": "Waterfall"
+  }
+]
